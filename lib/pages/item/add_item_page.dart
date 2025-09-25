@@ -68,7 +68,7 @@ class AddItemPageState extends State<AddItemPage> {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFF7209B7), Color(0xFFFF006E)],
+          colors: [Color(0xFF0096C7), Color(0xFF00B4D8)], // teal & aqua
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -81,10 +81,20 @@ class AddItemPageState extends State<AddItemPage> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: Text(
-            '✨ Add Your Thrift',
-            style: GoogleFonts.poppins(
-                fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.add_shopping_cart, color: Colors.white, size: 26), // 🛒 logo
+              const SizedBox(width: 8),
+              Text(
+                'BlueWave Shop - Add Item',
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
           centerTitle: true,
         ),
@@ -148,7 +158,7 @@ class AddItemPageState extends State<AddItemPage> {
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white.withOpacity(0.9),
-                    foregroundColor: Colors.deepPurple,
+                    foregroundColor: const Color(0xFF0096C7),
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -180,7 +190,7 @@ class AddItemPageState extends State<AddItemPage> {
                   onPressed: canUpload ? _handleUpload : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    foregroundColor: Colors.deepPurple,
+                    foregroundColor: const Color(0xFF0096C7),
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),

@@ -43,7 +43,7 @@ class ItemsPageState extends State<ItemsPage> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF3A0CA3), Color(0xFFF72585)],
+            colors: [Color(0xFF008080), Color(0xFFFFB300)], // teal to amber
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -55,9 +55,11 @@ class ItemsPageState extends State<ItemsPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 child: Row(
                   children: [
+                    const Icon(Icons.storefront, color: Colors.white, size: 30), // logo
+                    const SizedBox(width: 8),
                     Text(
-                      '🛍️ Thrift Store',
-                      style: GoogleFonts.poppins(
+                      'Eco Bazaar',
+                      style: GoogleFonts.raleway(   // new font
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -76,7 +78,7 @@ class ItemsPageState extends State<ItemsPage> {
                 ),
               ),
 
-              // Content grid
+              // Content grid (unchanged)
               Expanded(
                 child: RefreshIndicator(
                   color: Colors.white,
@@ -93,7 +95,7 @@ class ItemsPageState extends State<ItemsPage> {
                         return Center(
                           child: Text(
                             'Oops! ${snap.error}',
-                            style: GoogleFonts.poppins(color: Colors.redAccent),
+                            style: GoogleFonts.raleway(color: Colors.redAccent),
                           ),
                         );
                       }
@@ -102,7 +104,7 @@ class ItemsPageState extends State<ItemsPage> {
                         return Center(
                           child: Text(
                             'No treasures yet 🧐',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.raleway(
                               color: Colors.white70,
                               fontSize: 18,
                             ),
@@ -184,7 +186,7 @@ class ItemsPageState extends State<ItemsPage> {
                                         item.title,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: GoogleFonts.poppins(
+                                        style: GoogleFonts.raleway(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -192,9 +194,9 @@ class ItemsPageState extends State<ItemsPage> {
                                       const SizedBox(height: 6),
                                       Text(
                                         'Php ${item.price.toStringAsFixed(2)}',
-                                        style: GoogleFonts.poppins(
+                                        style: GoogleFonts.raleway(
                                           fontSize: 14,
-                                          color: const Color(0xFF7209B7),
+                                          color: const Color(0xFF008080), // teal accent
                                         ),
                                       ),
                                       const SizedBox(height: 6),
@@ -202,7 +204,7 @@ class ItemsPageState extends State<ItemsPage> {
                                         'By ${item.uploadedBy}',
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: GoogleFonts.poppins(
+                                        style: GoogleFonts.raleway(
                                           fontSize: 12,
                                           color: Colors.grey[600],
                                         ),
@@ -213,7 +215,7 @@ class ItemsPageState extends State<ItemsPage> {
                                         child: ElevatedButton(
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor:
-                                            const Color(0xFFF72585),
+                                            const Color(0xFFFFB300), // amber button
                                             padding:
                                             const EdgeInsets.symmetric(
                                                 vertical: 10),
@@ -231,7 +233,7 @@ class ItemsPageState extends State<ItemsPage> {
                                           },
                                           child: Text(
                                             'Details',
-                                            style: GoogleFonts.poppins(
+                                            style: GoogleFonts.raleway(
                                                 color: Colors.white),
                                           ),
                                         ),
@@ -254,11 +256,11 @@ class ItemsPageState extends State<ItemsPage> {
                 padding: const EdgeInsets.all(16),
                 child: FloatingActionButton.extended(
                   backgroundColor: Colors.white,
-                  foregroundColor: const Color(0xFF3A0CA3),
+                  foregroundColor: const Color(0xFF008080), // teal icon
                   icon: const Icon(Icons.add),
                   label: Text(
                     'Add New',
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+                    style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
                   ),
                   onPressed: () async {
                     await Navigator.pushNamed(context, '/add');

@@ -22,7 +22,7 @@ class ItemDetailPage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFF72585), Color(0xFF3A0CA3)],
+            colors: [Color(0xFF00BFA6), Color(0xFF00695C)], // 🌿 Fresh teal-green theme
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -40,7 +40,7 @@ class ItemDetailPage extends StatelessWidget {
                 return Center(
                   child: Text(
                     'Error: ${snap.error}',
-                    style: GoogleFonts.poppins(color: Colors.redAccent),
+                    style: GoogleFonts.robotoSlab(color: Colors.redAccent),
                   ),
                 );
               }
@@ -49,7 +49,7 @@ class ItemDetailPage extends StatelessWidget {
                 return Center(
                   child: Text(
                     'Item not found 🤷',
-                    style: GoogleFonts.poppins(color: Colors.white),
+                    style: GoogleFonts.robotoSlab(color: Colors.white),
                   ),
                 );
               }
@@ -59,22 +59,30 @@ class ItemDetailPage extends StatelessWidget {
                   ListView(
                     padding: const EdgeInsets.fromLTRB(16, 16, 16, 100),
                     children: [
-                      // Back + title
+                      // Back + store title with logo
                       Row(
                         children: [
                           GestureDetector(
                             onTap: () => Navigator.pop(context),
-                            child:
-                            const Icon(Icons.arrow_back_ios, color: Colors.white),
+                            child: const Icon(Icons.arrow_back_ios, color: Colors.white),
                           ),
                           const SizedBox(width: 8),
-                          Text(
-                            'Details',
-                            style: GoogleFonts.poppins(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
+                          Row(
+                            children: [
+                              Image.asset(
+                                'assets/logo.png', // ✅ Your logo file
+                                height: 28,
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                'Eco Thrift Store', // ✅ Store name updated
+                                style: GoogleFonts.robotoSlab(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -117,7 +125,7 @@ class ItemDetailPage extends StatelessWidget {
                       // Title & price
                       Text(
                         item.title,
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.robotoSlab(
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -126,10 +134,10 @@ class ItemDetailPage extends StatelessWidget {
                       const SizedBox(height: 8),
                       Text(
                         '₱ ${item.price.toStringAsFixed(2)}',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.robotoSlab(
                           fontSize: 22,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.yellowAccent,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.amberAccent,
                         ),
                       ),
                       const SizedBox(height: 24),
@@ -138,7 +146,7 @@ class ItemDetailPage extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.9),
+                          color: Colors.white.withOpacity(0.95),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: Column(
@@ -146,16 +154,16 @@ class ItemDetailPage extends StatelessWidget {
                           children: [
                             Text(
                               'Description',
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.robotoSlab(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.deepPurple,
+                                color: Colors.teal.shade900,
                               ),
                             ),
                             const SizedBox(height: 8),
                             Text(
                               item.description,
-                              style: GoogleFonts.poppins(fontSize: 14),
+                              style: GoogleFonts.robotoSlab(fontSize: 14),
                             ),
                           ],
                         ),
@@ -175,7 +183,8 @@ class ItemDetailPage extends StatelessWidget {
                               const SizedBox(width: 8),
                               InfoChip(
                                 icon: Icons.calendar_today,
-                                text: '${item.createdAt.month}/${item.createdAt.day}/${item.createdAt.year}',
+                                text:
+                                '${item.createdAt.month}/${item.createdAt.day}/${item.createdAt.year}',
                               ),
                             ],
                           ),
@@ -191,7 +200,7 @@ class ItemDetailPage extends StatelessWidget {
                     right: 16,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.yellowAccent,
+                        backgroundColor: Colors.amberAccent,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -210,14 +219,14 @@ class ItemDetailPage extends StatelessWidget {
                             context: context,
                             builder: (_) => AlertDialog(
                               title: Text('Contact Owner',
-                                  style: GoogleFonts.poppins()),
+                                  style: GoogleFonts.robotoSlab()),
                               content: SelectableText(email,
-                                  style: GoogleFonts.poppins()),
+                                  style: GoogleFonts.robotoSlab()),
                               actions: [
                                 TextButton(
                                   onPressed: () => Navigator.pop(context),
                                   child: Text('Close',
-                                      style: GoogleFonts.poppins()),
+                                      style: GoogleFonts.robotoSlab()),
                                 ),
                               ],
                             ),
@@ -226,10 +235,10 @@ class ItemDetailPage extends StatelessWidget {
                       },
                       child: Text(
                         'Contact Owner',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.robotoSlab(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Colors.deepPurple,
+                          color: Colors.teal.shade900,
                         ),
                       ),
                     ),
